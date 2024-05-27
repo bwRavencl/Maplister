@@ -91,6 +91,7 @@ public OnPluginStart()
 	{
 		FileSeek(hConfigFile, SEEK_SET, 0);
 		ReadFileLine(hConfigFile, g_sDefaultMapFile, sizeof(g_sDefaultMapFile));
+		TrimString(g_sDefaultMapFile);
 		
 		if (strlen(g_sDefaultMapFile) > 1)
 		{
