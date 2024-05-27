@@ -254,7 +254,7 @@ MapLister(OutputType:type, const String:path[], client, const String:filter[])
 		return false;
 
 	// Loop through each directory, storing all map names in "array"
-	for (new i=0; i<3; i++)
+	for (new i=0; i<4; i++)
 	{
 		if (mapdir != INVALID_HANDLE)
 		{
@@ -333,6 +333,13 @@ MapLister(OutputType:type, const String:path[], client, const String:filter[])
 				}
 			}
 			case 2:
+			{
+				if (!g_bIsL4D)
+				{
+					mapdir = OpenDirectory("custom/cstrike/maps/");
+				}
+			}
+			case 3:
 			{
 				// This is where we sort the entire array
 				SortADTArray(array, Sort_Ascending, Sort_String);
