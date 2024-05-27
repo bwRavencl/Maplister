@@ -5,6 +5,7 @@
 // 1.6.6 --- Seperate output by stock/custom.
 // 1.6.7 --- use defines for files, change default back to maplist.txt for compatibility, add cvar sm_maplist_file to allow changing the def file we output to.
 // 1.6.8 --- use cfg file for setting default map file
+// 1.6.8-bwRavencl --- also read maps from /custom/cstrike/maps, fixed reading of config file
 
 
 #include <sourcemod>
@@ -12,7 +13,7 @@
 #pragma semicolon 1
 
 
-#define PLUGIN_VERSION "1.6.8"
+#define PLUGIN_VERSION "1.6.8-bwRavencl"
 #define DEFAULT_MAP_FILE "maplist.txt"
 #define DEFAULT_EXCLUDES_FILE "configs/maplister_excludes.cfg"
 #define DEFAULT_CONFIG_FILE "configs/maplister.cfg"
@@ -36,8 +37,8 @@ enum OutputType
 
 public Plugin:myinfo = {
 	name = "Maplister",
-	author = "theY4Kman",
-	description = "Reads the /maps and /download/maps (or /addons for L4D) folders to write/display a maplist.",
+	author = "theY4Kman - modified by bwRavencl",
+	description = "Reads the /maps and /download/maps (or /addons for L4D) and (/custom/cstrike/maps if not L4D) folders to write/display a maplist.",
 	version = PLUGIN_VERSION,
 	url = "http://y4kstudios.com/sourcemod/"
 };
